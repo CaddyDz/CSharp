@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Flask.FrontEnd.HTML;
+using System.IO;
 
 namespace Flask
 {
@@ -17,31 +19,10 @@ namespace Flask
             InitializeComponent();
         }
 
-        private void ExitBtn_Click(object sender, EventArgs e)
+        private void HelloWorldBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void MinMaxBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Minimized;
-            } else if (this.WindowState == FormWindowState.Minimized)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void MinimizeBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                MessageBox.Show("Test");
-                
-            }
+            HTML_Writer HW = new HTML_Writer();
+            HW.Create("wow");
         }
     }
 }

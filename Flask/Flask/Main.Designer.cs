@@ -28,76 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.HeaderPanel = new System.Windows.Forms.Panel();
-            this.MinimizeBtn = new System.Windows.Forms.Button();
-            this.MinMaxBtn = new System.Windows.Forms.Button();
-            this.ExitBtn = new System.Windows.Forms.Button();
-            this.HeaderPanel.SuspendLayout();
+            this.ToolBoxPanel = new System.Windows.Forms.Panel();
+            this.HelloWorldBtn = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ToolBoxPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // HeaderPanel
+            // ToolBoxPanel
             // 
-            this.HeaderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HeaderPanel.Controls.Add(this.MinimizeBtn);
-            this.HeaderPanel.Controls.Add(this.MinMaxBtn);
-            this.HeaderPanel.Controls.Add(this.ExitBtn);
-            this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(1252, 42);
-            this.HeaderPanel.TabIndex = 0;
+            this.ToolBoxPanel.Controls.Add(this.HelloWorldBtn);
+            this.ToolBoxPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ToolBoxPanel.Location = new System.Drawing.Point(0, 0);
+            this.ToolBoxPanel.Name = "ToolBoxPanel";
+            this.ToolBoxPanel.Size = new System.Drawing.Size(200, 751);
+            this.ToolBoxPanel.TabIndex = 0;
             // 
-            // MinimizeBtn
+            // HelloWorldBtn
             // 
-            this.MinimizeBtn.Location = new System.Drawing.Point(1149, 3);
-            this.MinimizeBtn.Name = "MinimizeBtn";
-            this.MinimizeBtn.Size = new System.Drawing.Size(26, 23);
-            this.MinimizeBtn.TabIndex = 0;
-            this.MinimizeBtn.UseVisualStyleBackColor = true;
-            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
+            this.HelloWorldBtn.Location = new System.Drawing.Point(12, 12);
+            this.HelloWorldBtn.Name = "HelloWorldBtn";
+            this.HelloWorldBtn.Size = new System.Drawing.Size(75, 23);
+            this.HelloWorldBtn.TabIndex = 0;
+            this.HelloWorldBtn.Text = "HelloWorld";
+            this.HelloWorldBtn.UseVisualStyleBackColor = true;
+            this.HelloWorldBtn.Click += new System.EventHandler(this.HelloWorldBtn_Click);
             // 
-            // MinMaxBtn
+            // flowLayoutPanel1
             // 
-            this.MinMaxBtn.Location = new System.Drawing.Point(1181, 3);
-            this.MinMaxBtn.Name = "MinMaxBtn";
-            this.MinMaxBtn.Size = new System.Drawing.Size(26, 23);
-            this.MinMaxBtn.TabIndex = 0;
-            this.MinMaxBtn.UseVisualStyleBackColor = true;
-            this.MinMaxBtn.Click += new System.EventHandler(this.MinMaxBtn_Click);
-            // 
-            // ExitBtn
-            // 
-            this.ExitBtn.BackgroundImage = global::Flask.Properties.Resources.ExitBtn;
-            this.ExitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ExitBtn.Location = new System.Drawing.Point(1213, 3);
-            this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(26, 23);
-            this.ExitBtn.TabIndex = 0;
-            this.ExitBtn.UseVisualStyleBackColor = true;
-            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
+            this.flowLayoutPanel1.AllowDrop = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(312, 74);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(675, 444);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1252, 626);
-            this.Controls.Add(this.HeaderPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ClientSize = new System.Drawing.Size(1153, 751);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.ToolBoxPanel);
             this.Name = "Main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
-            this.Text = "Flask";
-            this.HeaderPanel.ResumeLayout(false);
+            this.Text = "Main";
+            this.ToolBoxPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel HeaderPanel;
-        private System.Windows.Forms.Button MinimizeBtn;
-        private System.Windows.Forms.Button MinMaxBtn;
-        private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.Panel ToolBoxPanel;
+        private System.Windows.Forms.Button HelloWorldBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
