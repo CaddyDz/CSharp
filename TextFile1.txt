@@ -1,3 +1,0 @@
-Use an instance of the stream reader to edit templates
-Automatically create a directory with the name of the project in the user documents folder
-For now let's create a simple html/css projects only
