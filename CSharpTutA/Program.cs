@@ -21,6 +21,9 @@ namespace CSharpTutA
             PowerButton powBut = new PowerButton(TV);
             powBut.Execute();
             powBut.Undo();
+            VolumnButton vb = new VolumnButton(TV);
+            vb.Execute();
+            vb.Undo();
             Console.ReadLine();
         }
     }

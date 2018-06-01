@@ -28,7 +28,7 @@ namespace CSharpTutA
         {
             if (Volumn != 100)
             {
-                Volumn--;
+                Volumn++;
             }
             Console.WriteLine($"The TV Volumn is at {Volumn}");
         }

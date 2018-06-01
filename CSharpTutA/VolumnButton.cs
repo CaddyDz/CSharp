@@ -2,23 +2,23 @@
 
 namespace CSharpTutA
 {
-    class PowerButton : ICommand
+    class VolumnButton : ICommand
     {
         IElectronicDevice device;
 
-        public PowerButton(IElectronicDevice device)
+        public VolumnButton(IElectronicDevice device)
         {
             this.device = device;
         }
 
         public void Execute()
         {
-            device.On();
+            device.VolumnUp();
         }
 
         public void Undo()
         {
-            device.Off();
+            device.VolumnDown();
         }
     }
 }

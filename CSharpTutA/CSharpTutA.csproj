@@ -51,6 +51,7 @@
     <Compile Include="Television.cs" />
     <Compile Include="TVRemote.cs" />
     <Compile Include="Vehicle.cs" />
+    <Compile Include="VolumnButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
