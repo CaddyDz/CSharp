@@ -42,16 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommand.cs" />
-    <Compile Include="IDrivable.cs" />
-    <Compile Include="IElectronicDevice.cs" />
-    <Compile Include="PowerButton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Television.cs" />
-    <Compile Include="TVRemote.cs" />
-    <Compile Include="Vehicle.cs" />
-    <Compile Include="VolumnButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
