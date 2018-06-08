@@ -28,8 +28,6 @@ namespace CSharpTutA
                 Console.WriteLine(animal.Name);
             }
 
-            // TODO: Check Generic Stack<T>, Queue<T>, Dictionary<TKey, TValue>
-
             Stack<Animal> animalsStack = new Stack<Animal>();
             animalsStack.Push(new Animal() { Name = "Kitty" });
             Console.WriteLine(animalsStack.Peek().Name);
@@ -73,6 +71,12 @@ namespace CSharpTutA
 
             Console.WriteLine("Add & substract 10 & 4");
             addSub(10, 4);
+
+            Generic<int> gen1 = new Generic<int>(30, 60);
+            Console.WriteLine(gen1.GetArea());
+
+            Generic<string> gen2 = new Generic<string>("30", "60");
+            Console.WriteLine(gen2.GetArea());
 
             Console.ReadLine();
         }
