@@ -30,6 +30,25 @@ namespace CSharpTutA
 
             // TODO: Check Generic Stack<T>, Queue<T>, Dictionary<TKey, TValue>
 
+            Stack<Animal> animalsStack = new Stack<Animal>();
+            animalsStack.Push(new Animal() { Name = "Kitty" });
+            Console.WriteLine(animalsStack.Peek().Name);
+
+            Queue<Animal> animalsQueue = new Queue<Animal>();
+            animalsQueue.Enqueue(new Animal() { Name = "Jack" });
+            Console.WriteLine(animalsQueue.Peek().Name);
+
+            Dictionary<string, string> animalsDictionary = new Dictionary<string, string>();
+            animalsDictionary.Add("Domestic", new Animal() { Name = "Julia" }.Name);
+            animalsDictionary.Add("Wild", new Animal() { Name = "Dan" }.Name);
+            animalsDictionary.TryGetValue("Domestic", out string Julia);
+            Console.WriteLine("One Domestic Animal is {0}", Julia);
+
+            foreach (KeyValuePair<string, string> item in animalsDictionary)
+            {
+                Console.WriteLine($"{item.Value} is a {item.Key} animal");
+            }
+
             int x = 5, y = 4;
             Animal.GetSum(ref x, ref y);
 
