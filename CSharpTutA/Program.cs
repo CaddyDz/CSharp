@@ -8,133 +8,98 @@ namespace CSharpTutA
     {
         static void Main(string[] args)
         {
-            #region ArrayList Code
-            ArrayList aList = new ArrayList();
+            List<Animal> animals = new List<Animal>();
 
-            aList.Add("Bob");
-            aList.Add(40);
+            List<int> numbers = new List<int>();
 
-            Console.WriteLine("Count: {0}", aList.Count);
+            numbers.Add(24);
 
-            Console.WriteLine("Capacity: {0}", aList.Capacity);
+            animals.Add(new Animal() { Name = "Doug" });
+            animals.Add(new Animal() { Name = "Paul" });
+            animals.Add(new Animal() { Name = "Sally" });
 
-            ArrayList aList2 = new ArrayList();
+            animals.Insert(1, new Animal() { Name = "Steve" });
+            animals.RemoveAt(1);
 
-            aList2.AddRange(new Object[] { "Mike", "Sally", "Egg" });
+            Console.WriteLine("Number of Animals : {0}", animals.Count);
 
-            aList.AddRange(aList2);
-
-            aList2.Sort();
-            aList2.Reverse();
-
-            aList2.Insert(1, "Turkey");
-
-            ArrayList range = aList2.GetRange(0, 2);
-
-            foreach (object o in aList2)
+            foreach (Animal animal in animals)
             {
-                Console.WriteLine(o);
+                Console.WriteLine(animal.Name);
             }
 
-            // aList2.RemoveAt(0);
+            // TODO: Check Generic Stack<T>, Queue<T>, Dictionary<TKey, TValue>
 
-            // aList2.RemoveRange(0, 2);
+            int x = 5, y = 4;
+            Animal.GetSum(ref x, ref y);
 
-            Console.WriteLine("Turkey Index : {0}", aList2.IndexOf("Turkey", 0));
+            string strX = "5", strY = "4";
+            Animal.GetSum(ref strX, ref strY);
 
-            string[] myArray = (string[])aList2.ToArray(typeof(string));
+            Rectangle<int> rec1 = new Rectangle<int>(20, 50);
+            Console.WriteLine(rec1.GetArea());
 
-            string[] customers = { "Bob", "Sally", "Sue" };
+            Rectangle<string> rec2 = new Rectangle<string>("20", "50");
+            Console.WriteLine(rec2.GetArea());
 
-            ArrayList custArrayList = new ArrayList();
+            Arithmetic add, sub, addSub;
 
-            custArrayList.AddRange(customers);
+            add = new Arithmetic(Add);
+            sub = new Arithmetic(Substract);
+            addSub = add + sub;
+            // sub = addSub - add;
 
-            foreach (string s in custArrayList)
-            {
-                Console.WriteLine(s);
-            }
+            Console.WriteLine("Add 6 & 10");
+            add(6, 10);
 
-            #endregion
+            Console.WriteLine("Add & substract 10 & 4");
+            addSub(10, 4);
 
-            #region Dictionaries
-
-            Dictionary<string, string> superheroes = new Dictionary<string, string>();
-
-            superheroes.Add("Clark Kent", "Superman");
-            superheroes.Add("Bruce Wayne", "Batman");
-            superheroes.Add("Barry West", "Flash");
-
-            superheroes.Remove("Barry West");
-
-            Console.WriteLine("Count : {0}", superheroes.Count);
-
-            Console.WriteLine("Clark Kent : {0}", superheroes.ContainsKey("Clark Kent"));
-
-            superheroes.TryGetValue("Clark Kent", out string test);
-
-            Console.WriteLine($"Clark Kent : {test}");
-
-            foreach (KeyValuePair<string, string> item in superheroes)
-            {
-                Console.WriteLine("{0} : {1}", item.Key, item.Value);
-            }
-
-            superheroes.Clear();
-            #endregion
-
-            #region Queues (FIFO)
-
-            Queue queue = new Queue();
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-
-            Console.WriteLine("1 in Queue : {0}", queue.Contains(1));
-
-            Console.WriteLine("Remove 1 : {0}", queue.Dequeue());
-
-            Console.WriteLine("Peek 1 : {0}", queue.Peek());
-
-            object[] numArray = queue.ToArray();
-
-            Console.WriteLine(string.Join(", ", numArray));
-
-            // queue.Clear();
-
-            foreach (object o in queue)
-            {
-                Console.WriteLine($"Queue : {o}");
-            }
-
-            #endregion
-
-            #region Stacks (LIFO)
-
-            Stack stack = new Stack();
-
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-
-            Console.WriteLine("Peek 1 : {0}", stack.Peek());
-
-            Console.WriteLine("Pop 1 : {0}", stack.Pop());
-
-            Console.WriteLine("Contains 1 : {0}", stack.Contains(1));
-
-            object[] numArray2 = stack.ToArray();
-
-            Console.WriteLine(string.Join(", ", numArray2));
-
-            // stack.Clear();
-
-            foreach (object o in stack)
-            {
-                Console.WriteLine($"Stack : {o}");
-            }
-            #endregion
             Console.ReadLine();
+        }
+
+        public struct Rectangle<T>
+        {
+            private T width;
+            private T length;
+
+            public T Width
+            {
+                get { return width; }
+                set { width = value; }
+            }
+
+            public T Length
+            {
+                get { return length; }
+                set { length = value; }
+            }
+
+            public Rectangle(T w, T l)
+            {
+                width = w;
+                length = l;
+            }
+
+            public string GetArea()
+            {
+                double dblWidth = Convert.ToDouble(Width);
+                double dblLength = Convert.ToDouble(Length);
+
+                return string.Format($"{Width} * {Length} = {dblWidth * dblLength}");
+            }
+        }
+
+        public delegate void Arithmetic(double num1, double num2);
+
+        public static void Add(double num1, double num2)
+        {
+            Console.WriteLine($"{num1} + {num2} = {num1+num2}");
+        }
+
+        public static void Substract(double num1, double num2)
+        {
+            Console.WriteLine($"{num1} - {num2} = {num1 - num2}");
         }
     }
 }
