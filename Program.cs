@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,6 @@ namespace CSharpTutA
 				{
 						doubleIt dblIt = x => x * 2;
 						Console.WriteLine($"5 * 2 = {dblIt(5)}");
-
 						List<int> numList = new List<int>
 						{
 								1, 9, 6, 3
@@ -100,10 +99,10 @@ namespace CSharpTutA
 
 						Console.WriteLine("Except : {0}", string.Join(", ", numList6.Except(numList7)));
 
-            var numList8 = new List<int>() { 1, 2, 3, 2, 3 };
+						var numList8 = new List<int>() { 1, 2, 3, 2, 3 };
 						var numList9 = new List<int>() {2, 3};
 
-            System.Console.WriteLine("Intersect : {0}", string.Join(", ", numList8.Intersect(numList9)));
+						System.Console.WriteLine("Intersect : {0}", string.Join(", ", numList8.Intersect(numList9)));
 
 						Console.ReadLine();
 				}
