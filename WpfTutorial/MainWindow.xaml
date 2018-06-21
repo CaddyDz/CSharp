@@ -14,16 +14,13 @@
             <ColumnDefinition Width="208*"/>
             <ColumnDefinition Width="156*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.Column="2" Margin="0,0,0,193">
-            <Grid>
-                <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-17,0"/>
-                <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,25,-17,0"/>
-                <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,50,-17,0"/>
-                <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,75,-17,0"/>
-                <Label Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,100,-17,0"/>
-
-            </Grid>
-        </ScrollViewer>
+        <DockPanel>
+            <Label x:Name="lblTop" DockPanel.Dock="Top" Content="Top"/>
+            <Label x:Name="lblLeft" DockPanel.Dock="Left" Content="Left"/>
+            <Label x:Name="lblRight" DockPanel.Dock="Right" Content="Top"/>
+            <Label x:Name="lblBottom" DockPanel.Dock="Bottom" Content="Bottom"/>
+            <Label x:Name="lblCenter" Content="Center"/>
+        </DockPanel>
 
     </Grid>
 </Window>
