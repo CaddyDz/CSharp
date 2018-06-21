@@ -11,24 +11,16 @@ namespace CSharpTutA
 
 				static void Main(string[] args)
 				{
-					Thread t = new Thread(Print1)	;
+					int num = 1;
 
-					t.Start();
-
-				for (int i = 0; i < 1000; i++)
-				{
-					Console.Write(0);
-				}
-
-					Console.ReadLine();
-				}
-
-				static void Print1()
-				{
-					for (int i = 0; i < 1000; i++)
+					for (int i = 0; i < 10; i++)
 					{
-							System.Console.Write(1);
+							System.Console.WriteLine(num);
+							Thread.Sleep(1000);
+							num++;
 					}
+					System.Console.WriteLine("Thread Ends");
+					Console.ReadLine();
 				}
 		}
 }
