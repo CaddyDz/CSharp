@@ -9,19 +9,10 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem x:Name="menuNew" Header="_New" InputGestureText="Ctrl+N">
-                    <MenuItem.Icon>
-                        <Image Source="./Resources/New.bmp" />
-                    </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="menuOpen" Header="_Open" InputGestureText="Ctrl+O" Click="MenuOpen_Click">
-                    <MenuItem.Icon>
-                        <Image Source="./Resources/Open.bmp" />
-                    </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="menuSave" Header="_Save" InputGestureText="Ctrl+S" Click="MenuSave_Click">
-                    <MenuItem.Icon>
-                        <Image Source="./Resources/Save.bmp" />
-                    </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
                 <MenuItem x:Name="menuExit" Header="Exit" InputGestureText="Ctrl+F4" Click="MenuExit_Click"/>
@@ -38,6 +29,29 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button x:Name="tbOpen" ToolTip="Open File" Click="MenuOpen_Click">
+                </Button>
+                <Button x:Name="tbSave" ToolTip="Save File" Click="MenuSave_Click">
+                </Button>
+                <Button x:Name="tbCut" Command="ApplicationCommands.Cut">
+                </Button>
+                <Button x:Name="tbCopy" Command="ApplicationCommands.Copy">
+                </Button>
+                <Button x:Name="tbPaste" Command="ApplicationCommands.Paste">
+                </Button>
+                <Separator/>
+                <Label>Font size:</Label>
+                <ComboBox x:Name="comboFontSize" SelectionChanged="ComboFontSize_SelectionChanged" DropDownClosed="ComboFontSize_DropDownClosed">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">12</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
         <TextBox x:Name="txtBoxDoc" Height="290" Width="500"/>
     </DockPanel>
 </Window>
