@@ -3,55 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTutorial"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"  SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal" Icon="./Resources/favicon.png">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem x:Name="menuNew" Header="_New" InputGestureText="Ctrl+N">
-                </MenuItem>
-                <MenuItem x:Name="menuOpen" Header="_Open" InputGestureText="Ctrl+O" Click="MenuOpen_Click">
-                </MenuItem>
-                <MenuItem x:Name="menuSave" Header="_Save" InputGestureText="Ctrl+S" Click="MenuSave_Click">
-                </MenuItem>
-                <Separator />
-                <MenuItem x:Name="menuExit" Header="Exit" InputGestureText="Ctrl+F4" Click="MenuExit_Click"/>
-            </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem x:Name="menuCut" Header="Cut" Command="ApplicationCommands.Cut" InputGestureText="Ctrl+X"/>
-                <MenuItem x:Name="menuCopy" Header="Copy" Command="ApplicationCommands.Copy" InputGestureText="Ctrl+C"/>
-                <MenuItem x:Name="menuPaste" Header="Paste" Command="ApplicationCommands.Paste" InputGestureText="Ctrl+V"/>
-                <Separator />
-                <MenuItem Header="_Font" InputGestureText="Ctrl+F">
-                    <MenuItem x:Name="menuFontTimes" Header="Times" IsCheckable="True" StaysOpenOnClick="True" Click="MenuFontTimes_Click"/>
-                    <MenuItem x:Name="menuFontCourier" Header="Courier" IsCheckable="True" StaysOpenOnClick="True" Click="MenuFontCourier_Click"/>
-                    <MenuItem x:Name="menuFontArial" Header="Arial" IsCheckable="True" StaysOpenOnClick="True" Click="MenuFontArial_Click"/>
-                </MenuItem>
-            </MenuItem>
-        </Menu>
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="319" Margin="1,0,-1,0" VerticalAlignment="Top" Width="517">
+            <TabItem Header="Calendar" Margin="-2,-2,-2,0">
+                <Grid Background="#FFE5E5E5">
+                    <Calendar Name="MyCalendar" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Background="AliceBlue" DisplayMode="Month"
+                              DisplayDateStart="3/1/2018" DisplayDateEnd="3/31/2018" FirstDayOfWeek="Monday" IsTodayHighlighted="True" SelectedDatesChanged="MyCalendar_SelectedDatesChanged">
+                        <Calendar.BlackoutDates>
+                            <CalendarDateRange Start="3/1/2018" End="3/10/2018">
+                            </CalendarDateRange>
+                        </Calendar.BlackoutDates>
+                        <Calendar.SelectedDates>
+                            <sys:DateTime>3/25/2017</sys:DateTime>
+                        </Calendar.SelectedDates>
 
-        <ToolBarTray DockPanel.Dock="Top">
-            <ToolBar>
-                <Button x:Name="tbOpen" ToolTip="Open File" Click="MenuOpen_Click">
-                </Button>
-                <Button x:Name="tbSave" ToolTip="Save File" Click="MenuSave_Click">
-                </Button>
-                <Button x:Name="tbCut" Command="ApplicationCommands.Cut">
-                </Button>
-                <Button x:Name="tbCopy" Command="ApplicationCommands.Copy">
-                </Button>
-                <Button x:Name="tbPaste" Command="ApplicationCommands.Paste">
-                </Button>
-                <Separator/>
-                <Label>Font size:</Label>
-                <ComboBox x:Name="comboFontSize" SelectionChanged="ComboFontSize_SelectionChanged" DropDownClosed="ComboFontSize_DropDownClosed">
-                    <ComboBoxItem>10</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">12</ComboBoxItem>
-                    <ComboBoxItem>14</ComboBoxItem>
-                    <ComboBoxItem>16</ComboBoxItem>
-                </ComboBox>
-            </ToolBar>
-        </ToolBarTray>
-        <TextBox x:Name="txtBoxDoc" Height="290" Width="500"/>
-    </DockPanel>
+                    </Calendar>
+                    <TextBox Name="tbDateSelected" HorizontalAlignment="Left" Height="23" Margin="211,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Draw">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="55">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
 </Window>
