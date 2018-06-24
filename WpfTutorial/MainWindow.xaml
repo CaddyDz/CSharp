@@ -25,8 +25,21 @@
                     <TextBox Name="tbDateSelected" HorizontalAlignment="Left" Height="23" Margin="211,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Draw">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Draw" KeyUp="DrawPanel_KeyUp">
+                <StackPanel Background="#FFE5E5E5">
+                    <ToolBar Height="50" Name="drawingToolbar">
+                        <RadioButton BorderBrush="#FFD2D2D2" Content="Draw" Height="50" Width="80" GroupName="DrawGroup" Click="DrawButton_Click"/>
+                        <RadioButton BorderBrush="#FFD2D2D2" Content="Erase" Height="50" Width="80" GroupName="DrawGroup" Click="DrawButton_Click"/>
+                        <RadioButton BorderBrush="#FFD2D2D2" Content="Select" Height="50" Width="80" GroupName="DrawGroup" Click="DrawButton_Click"/>
+                        <Button Background="#FFD2D2D2" Content="Save" Height="50" Width="80"/>
+                        <Button Background="#FFD2D2D2" Content="Open" Height="50" Width="80"/>
+                    </ToolBar>
+                    <InkCanvas Name="DrawingCanvas" Height="246">
+                        <InkCanvas.DefaultDrawingAttributes>
+                            <DrawingAttributes x:Name="strokeAttr" Width="3" Height="3" Color="Black"/>
+                        </InkCanvas.DefaultDrawingAttributes>
+                    </InkCanvas>
+                </StackPanel>
             </TabItem>
             <TabItem Header="TabItem" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="55">
                 <Grid Background="#FFE5E5E5"/>
